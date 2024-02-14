@@ -13,18 +13,20 @@ notesRouter.get('/', (req, res) => {
 });
 
 notesRouter.post('/', (req, res) => {
-    const {title, content} = req.body;
-    if(title && content){
+    const {title, text} = req.body;
+    if(title && text) {
+        let id = Math.ceil(Math.random()*999999999) + 2;
         const addedNote = {
             title, 
-            content
+            text,
+            "id": id
         }
 
-        fs.readFile('./db/db.json', (error, content) => {
+        fs.readFile('./db/db.json', (error, data) => {
             if(error){
                 console.log(error);
             } else {
-                const notes = JSON.parse(content);
+                const notes = JSON.parse(data);
                 notes.push(addedNote);
                 const stringifiedNotes = JSON.stringify(notes);
                 fs.writeFile('./db/db.json', stringifiedNotes, (error) => {
