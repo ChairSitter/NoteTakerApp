@@ -1,6 +1,6 @@
 # Note Taker App
 
-[alt text](/Assets/images/NoteTakerAppScreenshot.jpg)
+![Screenshot of note-taker app](/Assets/images/NoteTakerAppScreenshot.jpg)
 
 ## Description
 
